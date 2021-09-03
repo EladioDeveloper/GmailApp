@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GmailApp.Views.MailPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <Grid
+        Padding="10"
+        Margin="10"
+        VerticalOptions="StartAndExpand"
+        RowDefinitions="6*, 95*"
+        ColumnDefinitions="*">
+
+        <Frame
+            BackgroundColor="Transparent"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.Row="0"
+            IsClippedToBounds="True" CornerRadius="5" HasShadow="True" Padding="1" BorderColor="Green">
+
+            <Grid
+                Margin="10"
+                VerticalOptions="StartAndExpand"
+                RowDefinitions="Auto"
+                ColumnDefinitions="10*, 80*, 10*">
+
+                <Image 
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Source="menu"
+                    Margin="6"
+                    />
+
+                <Entry
+                    BackgroundColor="Transparent"
+                    x:Name="emailEntry"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Placeholder="ID"
+                    TextColor="Black"
+                    PlaceholderColor="Black"
+                    Keyboard="Telephone"
+                    FontSize="Body"
+                    Text="{Binding User.Email}">    
+
+                    <Entry.Effects>
+                        <xct:RemoveBorderEffect />
+                    </Entry.Effects>
+                </Entry>
+
+               
+
+            </Grid>
+            
+        </Frame>
+
+        <Image
+            BackgroundColor="Beige"
+            Grid.Row="1"
+            Grid.ColumnSpan="3"
+            Source="eladio" />
+
+    </Grid>
+</ContentPage>
