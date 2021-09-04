@@ -1,6 +1,4 @@
-﻿using GmailApp.Services;
-using GmailApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,12 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace GmailApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MailPage : ContentPage
+    public partial class ComposePage : ContentPage
     {
-        public MailPage()
+        public ComposePage()
         {
             InitializeComponent();
-            BindingContext = new EmailsViewModel(new NavigationService());
         }
     }
 }

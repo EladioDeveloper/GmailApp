@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GmailApp.Views.ComposePage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Title="Compose"
+             BackgroundColor="White">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="clip" Order="Primary" Priority="1"/>
+        <ToolbarItem IconImageSource="send" Order="Primary" Priority="2"/>
+        <ToolbarItem IconImageSource="more" Order="Primary"  Priority="3"/>
+    </ContentPage.ToolbarItems>
+    <Grid
+        RowDefinitions="10*,10*,10*, 70*"
+        ColumnDefinitions="Auto, Auto"
+        Padding="10"
+        Margin="10"
+        VerticalOptions="StartAndExpand"
+        HorizontalOptions="FillAndExpand"
+        BackgroundColor="White">
+
+        <Label
+            Grid.Column="0"
+            Grid.Row="0"
+            FontSize="Title"
+            Text="From"
+            HorizontalOptions="Start" 
+            BackgroundColor="White"
+            Padding="10"/>
+
+        <Entry
+            BackgroundColor="White"
+            x:Name="fromlEntry"
+            Grid.Row="0"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Placeholder="Search in mail"
+            TextColor="Black"
+            PlaceholderColor="Black"
+            Keyboard="Email"
+            FontSize="16"
+            HorizontalOptions="FillAndExpand">
+
+            <Entry.Effects>
+                <xct:RemoveBorderEffect />
+            </Entry.Effects>
+        </Entry>
+
+        <Label
+            Grid.Column="0"
+            Grid.Row="1"
+            Grid.ColumnSpan="1"
+            FontSize="Title"
+            Text="To"
+            HorizontalOptions="FillAndExpand" 
+            BackgroundColor="White"
+            Padding="10"/>
+
+        <Entry
+            BackgroundColor="White"
+            x:Name="toEntry"
+            Grid.Row="1"
+            Grid.Column="1"
+            Grid.ColumnSpan="2"
+            Placeholder="Search in mail"
+            TextColor="Black"
+            PlaceholderColor="Black"
+            Keyboard="Email"
+            FontSize="16"
+            HorizontalOptions="FillAndExpand">
+
+            <Entry.Effects>
+                <xct:RemoveBorderEffect />
+            </Entry.Effects>
+        </Entry>
+
+        <Entry
+            BackgroundColor="White"
+            x:Name="subjectEntry"
+            Grid.Row="2"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Placeholder="Subject"
+            TextColor="Black"
+            PlaceholderColor="Black"
+            Keyboard="Email"
+            FontSize="16"
+            HorizontalOptions="FillAndExpand">
+
+            <Entry.Effects>
+                <xct:RemoveBorderEffect />
+            </Entry.Effects>
+        </Entry>
+
+        <Editor
+            BackgroundColor="White"
+            x:Name="bodyEntry"
+            Grid.Row="3"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            Grid.RowSpan="50"
+            Placeholder="Message Body"
+            TextColor="Black"
+            PlaceholderColor="Black"
+            Keyboard="Text"
+            FontSize="Body"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            IsTextPredictionEnabled="True"
+            >
+
+            <Editor.Effects>
+                <xct:RemoveBorderEffect />
+            </Editor.Effects>
+        </Editor>
+    </Grid>
+</ContentPage>

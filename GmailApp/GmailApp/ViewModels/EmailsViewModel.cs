@@ -1,4 +1,6 @@
 ﻿using GmailApp.Models;
+using GmailApp.Services;
+using GmailApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,10 +11,9 @@ using Xamarin.Forms;
 
 namespace GmailApp.ViewModels
 {
-    public class EmailsViewModel : INotifyPropertyChanged
+    public class EmailsViewModel : BaseViewModel
     {
         private Email _email;
-        public event PropertyChangedEventHandler PropertyChanged;
 
         public Email SelectedEmail
         {
@@ -60,7 +61,7 @@ namespace GmailApp.ViewModels
            
         };
 
-        public EmailsViewModel()
+        public EmailsViewModel(INavigationService navigationService) : base(navigationService)
         {
             SelectedEmailCommand = new Command<Email>(OnPlaceSelected);
             AddCommand = new Command<Email>(AddEmail);
@@ -80,34 +81,37 @@ namespace GmailApp.ViewModels
 
         private async void AddEmail(Email obj)
         {
-            var name = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Nombre");
-            var subject = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Subject");
-            var content = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Content");
+            /* var name = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Nombre");
+             var subject = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Subject");
+             var content = await App.Current.MainPage.DisplayPromptAsync("Especifique", "Content");
 
-            Emails = new ObservableCollection<Email>()
-            {
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
-                new Email(name, subject, content,DateTime.Now.ToString("h:mm tt"))
-            };
+             Emails = new ObservableCollection<Email>()
+             {
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email("Uber eats", "¡Tienes 35% de descuento!", "Puntualmente delicioso. Uber Eats Calma tu antojo con 35% de descuento", DateTime.Now.ToString("h:mm tt")),
+                 new Email(name, subject, content,DateTime.Now.ToString("h:mm tt"))
+             };
+            */
+
+            await NavigationService.NavigateAsync(new ComposePage());
         }
 
         private async void OnPlaceSelected(Email email)

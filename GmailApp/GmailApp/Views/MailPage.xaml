@@ -7,9 +7,6 @@
              xmlns:views="clr-namespace:GmailApp.Views"
              x:Name="mailPage"
              BackgroundColor="White">
-    <ContentPage.BindingContext>
-        <viewModels:EmailsViewModel />
-    </ContentPage.BindingContext>
 
 
 
