@@ -7,7 +7,7 @@
              BackgroundColor="White">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="clip" Order="Primary" Priority="1"/>
+        <ToolbarItem IconImageSource="clip" Order="Primary" Priority="1" Command="{Binding AttachCommand}"/>
         <ToolbarItem IconImageSource="send" Order="Primary" Priority="2" Command="{Binding SendCommand}"/>
         <ToolbarItem IconImageSource="more" Order="Primary"  Priority="3"/>
     </ContentPage.ToolbarItems>

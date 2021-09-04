@@ -36,17 +36,31 @@ namespace GmailApp.ViewModels
         public ICommand DeleteCommand { get; }
         public ICommand ShowCommand { get; }
 
-        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>(){ };
+        public ObservableCollection<Email> Emails { get; set; } = new ObservableCollection<Email>(){};
 
         public EmailsViewModel(INavigationService navigationService) : base(navigationService)
         {
             SelectedEmailCommand = new Command<Email>(OnPlaceSelected);
             AddCommand = new Command<Email>(AddEmail);
             DeleteCommand = new Command<Email>(DeleteEmail);
+            int counter = Xamarin.Essentials.Preferences.Get("Counter", 0);
+            for (int i = 1; i <= counter; i++)
+            {
+                var getEmail = Xamarin.Essentials.Preferences.Get($"Email#{i}", "").Split(',');
+                Emails.Add(new Email(getEmail[0], getEmail[1], getEmail[2], getEmail[3]));
+            }
         }
         private void DeleteEmail(Email email)
         {
             Emails.Remove(email);
+            Xamarin.Essentials.Preferences.Clear();
+            int counter = 1;
+            foreach (var emailItem in Emails)
+            {
+                Xamarin.Essentials.Preferences.Set($"Email#{counter}", $"{emailItem.From}, {emailItem.Subject}, {emailItem.Body}, {emailItem.Time}");
+                Xamarin.Essentials.Preferences.Set("Counter", counter);
+                counter++;
+            }
         }
 
         private async void AddEmail(Email email)
@@ -57,7 +71,6 @@ namespace GmailApp.ViewModels
         private async void OnPlaceSelected(Email email)
         {
             await NavigationService.NavigateAsync(new EmailDetailPage(email));
-            //await App.Current.MainPage.DisplayAlert(email.From, email.Subject, "OK");
         }
     }
 }
