@@ -43,27 +43,21 @@ namespace GmailApp.ViewModels
             SelectedEmailCommand = new Command<Email>(OnPlaceSelected);
             AddCommand = new Command<Email>(AddEmail);
             DeleteCommand = new Command<Email>(DeleteEmail);
-            ShowCommand = new Command<Email>(ShowEmail);
         }
-
-        private void ShowEmail(Email obj)
-        {
-            throw new NotImplementedException();
-        }
-
         private void DeleteEmail(Email email)
         {
             Emails.Remove(email);
         }
 
-        private async void AddEmail(Email obj)
+        private async void AddEmail(Email email)
         {
             await NavigationService.NavigateAsync(new ComposePage(Emails));
         }
 
         private async void OnPlaceSelected(Email email)
         {
-            await App.Current.MainPage.DisplayAlert(email.From, email.Subject, "OK");
+            await NavigationService.NavigateAsync(new EmailDetailPage(email));
+            //await App.Current.MainPage.DisplayAlert(email.From, email.Subject, "OK");
         }
     }
 }
