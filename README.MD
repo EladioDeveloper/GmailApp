@@ -9,12 +9,12 @@ Web App Reference [gmail.com](https://play.google.com/store/apps/details?id=com.
 
 <img src="screenshot/demo.gif" width="300" />
 <br />
-<img src="screenshot/ss1.jpg" width="300" />
-<img src="screenshot/ss2.jpg" width="300" />
-<img src="screenshot/ss3.jpg" width="300" />
-<img src="screenshot/ss4.jpg" width="300" />
-<img src="screenshot/ss5.jpg" width="300" />
-<img src="screenshot/ss6.jpg" width="300" />
+<img src="screenshot/ss1.jpg" width="200" />
+<img src="screenshot/ss2.jpg" width="200" />
+<img src="screenshot/ss3.jpg" width="200" />
+<img src="screenshot/ss4.jpg" width="200" />
+<img src="screenshot/ss5.jpg" width="200" />
+<img src="screenshot/ss6.jpg" width="200" />
 
 
 ## Tools used
