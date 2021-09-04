@@ -9,11 +9,11 @@ namespace GmailApp.ViewModels
 {
     class EmailDetailViewModel : BaseViewModel
     {
-        private Email _email;
+        public Email Email { get; set; } = new Email();
 
         public EmailDetailViewModel(INavigationService navigationService, Email email) : base(navigationService)
         {
-            _email = email;
+            Email = email;
         }
 
        

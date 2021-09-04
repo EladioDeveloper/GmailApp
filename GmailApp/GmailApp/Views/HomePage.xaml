@@ -13,16 +13,6 @@
     NavigationPage.HasNavigationBar="False"
     BackgroundColor="White">
 
-    <!-- <NavigationPage.TitleView >
-        <Label
-            FontAttributes="Bold"
-            FontSize="Title"
-            HorizontalOptions="Center"
-            Text="Discovery"
-            TextColor="Black"/>
-
-    </NavigationPage.TitleView> -->
-
     <TabbedPage.Children>
         <local:MailPage Title="Mail" IconImageSource="email.png" />
         <local:MeetPage Title="Meet" IconImageSource="cameraMeet.png"/>

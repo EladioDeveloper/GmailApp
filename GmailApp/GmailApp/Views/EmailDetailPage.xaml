@@ -12,26 +12,49 @@
     </ContentPage.ToolbarItems>
     
     
-    <StackLayout>
+    <StackLayout
+        BackgroundColor="White">
         <Grid 
-            RowDefinitions="*" 
-            ColumnDefinitions="*,40" 
-            Padding="20,0,20,0">
-            
-            <Label 
-                Grid.Row="0" 
+            Padding="5"
+            Margin="5"
+            BackgroundColor="White">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"  />
+                <ColumnDefinition Width="10*" />
+                <ColumnDefinition Width="15*" />
+                <ColumnDefinition Width="60*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
                 Grid.Column="0" 
-                Text="{Binding Subject}" 
-                VerticalOptions="Center" 
-                FontSize="Large" 
+                Text="{Binding Email.Subject}" 
+                FontSize="Title" 
                 TextColor="Black"/>
             
             <Image
-                Grid.Row="0" 
                 Grid.Column="1" 
-                HorizontalOptions="EndAndExpand" 
-                Source="star"  
-                BackgroundColor="Transparent" 
+                Source="right_arrow"
+                WidthRequest="25"/>
+
+            <Frame
+                Grid.Column="2"
+                Padding="-2"
+                CornerRadius="15"
+                BackgroundColor="LightGray">
+                <Label 
+                    Margin="5"
+                    Text="Inbox"
+                    HorizontalOptions="Center"
+                    FontSize="Subtitle" 
+                    TextColor="Black"
+                    BackgroundColor="LightGray"/>
+            </Frame>
+            
+            <Image
+                Grid.Column="3" 
+                Source="star"
+                HorizontalOptions="EndAndExpand"
                 WidthRequest="25"/>
         </Grid>
         
@@ -50,7 +73,7 @@
                 VerticalOptions="StartAndExpand"/>
 
             <Label 
-                Text="{Binding From}"  
+                Text="{Binding Email.From}"  
                 Grid.Row="0" 
                 Grid.Column="1" 
                 FontSize="17" 
@@ -75,7 +98,7 @@
                 <Label.FormattedText>
                     <FormattedString>
                         <Span 
-                            Text="{Binding Time}" 
+                            Text="{Binding Email.Time}" 
                             TextColor="#909090"/>
                         
                         <Span 
@@ -99,14 +122,14 @@
                 Grid.Column="3" 
                 HorizontalOptions="End" 
                 VerticalOptions="Start" 
-                Source="more_vert_gray_icon.png" 
+                Source="more" 
                 BackgroundColor="Transparent" 
                 WidthRequest="25"/>
         </Grid>
         
         <Label 
             Padding="20,0,20,0" 
-            Text="{Binding Body}" 
+            Text="{Binding Email.Body}" 
             VerticalOptions="Center" 
             FontSize="Medium" 
             TextColor="Black"/>
