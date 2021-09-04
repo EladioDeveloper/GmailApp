@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GmailApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace GmailApp.Views
         public MailPage()
         {
             InitializeComponent();
+            //BindingContext = new EmailsViewModel();
         }
     }
 }
