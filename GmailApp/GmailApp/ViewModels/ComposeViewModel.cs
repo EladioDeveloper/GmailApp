@@ -1,5 +1,6 @@
 ﻿using GmailApp.Models;
 using GmailApp.Services;
+using Plugin.LocalNotifications;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -45,6 +46,7 @@ namespace GmailApp.ViewModels
             };
 
             await Xamarin.Essentials.Email.ComposeAsync(message);
+            CrossLocalNotifications.Current.Show("GMAIL REPLICATE APP", "Email Sent", 0, DateTime.Now.AddSeconds(7));
             await NavigationService.NavigateBackAsync();
         }
     }
