@@ -10,7 +10,8 @@
     android:TabbedPage.BarItemColor="Gray"
     android:TabbedPage.BarSelectedItemColor="	#c71610"
     NavigationPage.IconColor="Black"
-    NavigationPage.HasNavigationBar="False">
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="White">
 
     <!-- <NavigationPage.TitleView >
         <Label

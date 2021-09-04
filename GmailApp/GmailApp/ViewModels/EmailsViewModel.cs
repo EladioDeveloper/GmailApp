@@ -11,8 +11,8 @@ namespace GmailApp.ViewModels
 {
     public class EmailsViewModel : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
         private Email _email;
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public Email SelectedEmail
         {
@@ -47,10 +47,10 @@ namespace GmailApp.ViewModels
 
         public EmailsViewModel()
         {
-            SelectedEmailCommand    = new Command<Email>(OnPlaceSelected);
-            AddCommand              = new Command<Email>(AddEmail);
-            DeleteCommand           = new Command<Email>(DeleteEmail);
-            ShowCommand             = new Command<Email>(ShowEmail);
+            SelectedEmailCommand = new Command<Email>(OnPlaceSelected);
+            AddCommand = new Command<Email>(AddEmail);
+            DeleteCommand = new Command<Email>(DeleteEmail);
+            ShowCommand = new Command<Email>(ShowEmail);
         }
 
         private void ShowEmail(Email obj)

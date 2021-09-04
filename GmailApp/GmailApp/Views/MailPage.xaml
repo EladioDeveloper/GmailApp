@@ -4,7 +4,8 @@
              x:Class="GmailApp.Views.MailPage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:viewModels="clr-namespace:GmailApp.ViewModels"
-             x:Name="mailPage">
+             x:Name="mailPage"
+             BackgroundColor="White">
     <ContentPage.BindingContext>
         <viewModels:EmailsViewModel />
     </ContentPage.BindingContext>
@@ -86,33 +87,36 @@
             />
 
         <CollectionView
-            Grid.Column="0"
-            Grid.ColumnSpan="3"
-            Grid.Row="2"
-            ItemsSource="{Binding Emails}"
-            SelectedItem="{Binding SelectedEmail}"
-            SelectionMode="Single">
+           Grid.Column="0"
+           Grid.ColumnSpan="3"
+           Grid.Row="2"
+           ItemsSource="{Binding Emails}"
+           SelectedItem="{Binding SelectedEmail}"
+           SelectionMode="Single">
 
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <SwipeView>
-                        <SwipeView.RightItems>
-                            <SwipeItems>
-                                <SwipeItem 
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <SwipeView>
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem 
                                     IconImageSource="delete"
                                     BackgroundColor="Red"
                                     Command="{Binding Source={x:Reference mailPage}, Path=BindingContext.DeleteCommand}"
                                     CommandParameter="{Binding}"/>
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-                        <StackLayout Padding="1">
-                            
-                        </StackLayout>
-                    </SwipeView>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-            
-        </CollectionView>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <StackLayout Padding="1">
+                                <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="StartAndExpand" />
+                                <Label Text="{Binding Category}" FontSize="Small" HorizontalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+          
 
         </Grid>
         
