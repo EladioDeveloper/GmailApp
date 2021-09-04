@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GmailApp.Views.EmailDetailPage">
+             x:Class="GmailApp.Views.EmailDetailPage"
+>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="folder" Order="Primary" Priority="1"/>
@@ -9,11 +10,105 @@
         <ToolbarItem IconImageSource="email" Order="Primary"  Priority="3"/>
         <ToolbarItem IconImageSource="more" Order="Primary"  Priority="4"/>
     </ContentPage.ToolbarItems>
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+    
+    
+    <StackLayout>
+        <Grid 
+            RowDefinitions="*" 
+            ColumnDefinitions="*,40" 
+            Padding="20,0,20,0">
+            
+            <Label 
+                Grid.Row="0" 
+                Grid.Column="0" 
+                Text="{Binding Subject}" 
+                VerticalOptions="Center" 
+                FontSize="Large" 
+                TextColor="Black"/>
+            
+            <Image
+                Grid.Row="0" 
+                Grid.Column="1" 
+                HorizontalOptions="EndAndExpand" 
+                Source="star"  
+                BackgroundColor="Transparent" 
+                WidthRequest="25"/>
+        </Grid>
+        
+        <BoxView Color="#DDD" HeightRequest="1"/>
+        
+        <Grid
+            ColumnDefinitions="70,*,40,40" 
+            RowDefinitions="*,*,20" 
+            Padding="5,20,20,20">
+            
+            <Image 
+                Source="eladio" 
+                Grid.Row="0" Grid.Column="0" 
+                Grid.RowSpan="3" HorizontalOptions="Center" 
+                WidthRequest="50" 
+                VerticalOptions="StartAndExpand"/>
+
+            <Label 
+                Text="{Binding From}"  
+                Grid.Row="0" 
+                Grid.Column="1" 
+                FontSize="17" 
+                TextColor="Black" 
+                VerticalOptions="Start"/>
+            
+            <Label 
+                Text="Me" 
+                Grid.Row="1"  
+                Grid.Column="1" 
+                FontSize="15" 
+                TextColor="#909090" 
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+                Grid.ColumnSpan="3"/>
+            
+            <Label 
+                Grid.Row="2" 
+                Grid.Column="1" 
+                FontSize="14" 
+                Grid.ColumnSpan="3">
+                
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span 
+                            Text="{Binding Time}" 
+                            TextColor="#909090"/>
+                        
+                        <Span 
+                            Text=" View details" 
+                            TextColor="#3366BB"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Image 
+                Grid.Row="0" 
+                Grid.Column="2" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start" 
+                Source="reply" 
+                BackgroundColor="Transparent" 
+                WidthRequest="25"/>
+            
+            <Image 
+                Grid.Row="0" 
+                Grid.Column="3" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start" 
+                Source="more_vert_gray_icon.png" 
+                BackgroundColor="Transparent" 
+                WidthRequest="25"/>
+        </Grid>
+        
+        <Label 
+            Padding="20,0,20,0" 
+            Text="{Binding Body}" 
+            VerticalOptions="Center" 
+            FontSize="Medium" 
+            TextColor="Black"/>
+    </StackLayout>
 </ContentPage>
