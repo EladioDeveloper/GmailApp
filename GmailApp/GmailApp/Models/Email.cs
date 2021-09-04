@@ -6,17 +6,21 @@ namespace GmailApp.Models
 {
     public class Email
     {
-        public Email(string name, string subject,  string content, string time)
+        public Email()
         {
-            Name    = name;
+
+        }
+        public Email(string from, string subject,  string body, string time)
+        {
+            From    = from;
             Subject = subject;
-            Content = content;
+            Body = body;
             Time    = time;
         }
 
-        public string Name { get; set; }
+        public string From { get; set; }
         public string Subject { get; set; }
-        public string Content { get; set; }
+        public string Body { get; set; }
         public string Time { get; set; }
         
     }

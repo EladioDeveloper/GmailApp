@@ -9,5 +9,6 @@ namespace GmailApp.Services
     public interface INavigationService
     {
         Task NavigateAsync(Page page);
+        Task NavigateBackAsync();
     }
 }

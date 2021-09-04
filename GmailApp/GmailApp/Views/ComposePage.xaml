@@ -8,7 +8,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="clip" Order="Primary" Priority="1"/>
-        <ToolbarItem IconImageSource="send" Order="Primary" Priority="2"/>
+        <ToolbarItem IconImageSource="send" Order="Primary" Priority="2" Command="{Binding SendCommand}"/>
         <ToolbarItem IconImageSource="more" Order="Primary"  Priority="3"/>
     </ContentPage.ToolbarItems>
     <Grid
@@ -40,7 +40,8 @@
             PlaceholderColor="Black"
             Keyboard="Email"
             FontSize="16"
-            HorizontalOptions="FillAndExpand">
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding Email.From}">
 
             <Entry.Effects>
                 <xct:RemoveBorderEffect />
@@ -86,7 +87,8 @@
             PlaceholderColor="Black"
             Keyboard="Email"
             FontSize="16"
-            HorizontalOptions="FillAndExpand">
+            HorizontalOptions="FillAndExpand"
+            Text="{Binding Email.Subject}">
 
             <Entry.Effects>
                 <xct:RemoveBorderEffect />
@@ -108,6 +110,7 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"
             IsTextPredictionEnabled="True"
+            Text="{Binding Email.Body}"
             >
 
             <Editor.Effects>
