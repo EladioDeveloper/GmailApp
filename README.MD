@@ -7,13 +7,15 @@ Web App Reference [gmail.com](https://play.google.com/store/apps/details?id=com.
 ## Screenshots / Clone APP
 
 
-![Demo](/screenshot/demo.gif)
-![Demo](/screenshot/ss1.jpg)
-![Demo](/screenshot/ss2.jpg)
-![Demo](/screenshot/ss3.jpg)
-![Demo](/screenshot/ss4.jpg)
-![Demo](/screenshot/ss5.jpg)
-![Demo](/screenshot/ss6.jpg)
+<img src="screenshot/demo.gif" width="300" />
+<br />
+<img src="screenshot/ss1.jpg" width="300" />
+<img src="screenshot/ss2.jpg" width="300" />
+<img src="screenshot/ss3.jpg" width="300" />
+<img src="screenshot/ss4.jpg" width="300" />
+<img src="screenshot/ss5.jpg" width="300" />
+<img src="screenshot/ss6.jpg" width="300" />
+
 
 ## Tools used
 
