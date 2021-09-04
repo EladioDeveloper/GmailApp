@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GmailApp.Views.EmailView">
+  <ContentView.Content>
+        <StackLayout Orientation="Horizontal">
+            <StackLayout
+                HorizontalOptions="Center"
+                Orientation="Vertical"
+                VerticalOptions="Center"
+                Padding="10">
+                <Frame
+                    BackgroundColor="Blue"
+                    IsClippedToBounds="True"
+                    CornerRadius="200"
+                    Padding="-4"
+                    Margin="0">
+
+                    <Image Margin="0" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="50" WidthRequest="50"  Source="eladio" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout
+                Margin="10,15,10,15"
+                HorizontalOptions="FillAndExpand"
+                Orientation="Horizontal"
+                VerticalOptions="Center">
+
+                <StackLayout
+                    Margin="0,0,10,0"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical"
+                    VerticalOptions="Center">
+                    <Label
+                        Margin="0,0,0,0"
+                        FontSize="Title"
+                        HorizontalOptions="Start"
+                        Text="{Binding Name}"
+                        TextColor="Black"
+                        XAlign="Start" 
+                        FontAttributes="Bold"/>
+                    <Label
+                        Margin="0,0,0,0"
+                        FontSize="Subtitle"
+                        HorizontalOptions="Start"
+                        Text="{Binding Subject}"
+                        TextColor="Black"
+                        XAlign="Start" 
+                        FontAttributes="Bold"/>
+                    
+                    <Label
+                        Margin="0,0,0,0"
+                        FontSize="Body"
+                        HorizontalOptions="Start"
+                        Text="{Binding Content}"
+                        TextColor="Black"
+                        XAlign="Start" 
+                        LineBreakMode="NoWrap"/>
+
+                </StackLayout>
+               
+
+                <Label
+                    FontSize="12"
+                    HorizontalOptions="EndAndExpand"
+                    Text="{Binding Time}"
+                    TextColor="Gray"
+                    XAlign="Start" />
+            </StackLayout>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

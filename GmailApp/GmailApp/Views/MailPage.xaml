@@ -4,6 +4,7 @@
              x:Class="GmailApp.Views.MailPage"
              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
              xmlns:viewModels="clr-namespace:GmailApp.ViewModels"
+             xmlns:views="clr-namespace:GmailApp.Views"
              x:Name="mailPage"
              BackgroundColor="White">
     <ContentPage.BindingContext>
@@ -106,10 +107,7 @@
                                     CommandParameter="{Binding}"/>
                                 </SwipeItems>
                             </SwipeView.RightItems>
-                            <StackLayout Padding="1">
-                                <Label Text="{Binding Name}" FontSize="Large" HorizontalOptions="StartAndExpand" />
-                                <Label Text="{Binding Category}" FontSize="Small" HorizontalOptions="EndAndExpand" />
-                            </StackLayout>
+                            <views:EmailView />
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
@@ -126,8 +124,8 @@
             BorderColor="#2b3c3c" 
             BackgroundColor="Transparent" 
             HorizontalOptions="End" 
-            WidthRequest="75" 
-            HeightRequest="75" 
+            WidthRequest="60" 
+            HeightRequest="60" 
             Margin="0,0,20,22" 
             VerticalOptions="End"
             CornerRadius="200"
